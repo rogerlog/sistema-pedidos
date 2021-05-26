@@ -26,9 +26,13 @@ public class Programa {
 		em.getTransaction().commit();
 		*/
 		
-		Pessoa p = em.find(Pessoa.class, 2);
+		//Pessoa p = em.find(Pessoa.class, 2);
+		//System.out.println(p);
 		
-		System.out.println(p);
+		Pessoa p = em.find(Pessoa.class, 2);
+		em.getTransaction().begin();
+		em.remove(p);
+		em.getTransaction().commit();
 		
 		System.out.println("Ok dba... rr");
 		em.close();
