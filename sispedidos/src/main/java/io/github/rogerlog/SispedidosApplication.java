@@ -9,10 +9,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import io.github.rogerlog.domain.Categoria;
 import io.github.rogerlog.domain.Cidade;
+import io.github.rogerlog.domain.Cliente;
+import io.github.rogerlog.domain.Endereco;
 import io.github.rogerlog.domain.Estado;
 import io.github.rogerlog.domain.Produto;
+import io.github.rogerlog.domain.enums.TipoCliente;
 import io.github.rogerlog.repositories.CategoriaRepository;
 import io.github.rogerlog.repositories.CidadeRepository;
+import io.github.rogerlog.repositories.ClienteRepository;
+import io.github.rogerlog.repositories.EnderecoRepository;
 import io.github.rogerlog.repositories.EstadoRepository;
 import io.github.rogerlog.repositories.ProdutoRepository;
 
@@ -30,6 +35,12 @@ public class SispedidosApplication implements CommandLineRunner {
 	
 	@Autowired
 	private CidadeRepository cidadeRepository;	
+	
+	@Autowired
+	private ClienteRepository clienteRepository;	
+	
+	@Autowired
+	private EnderecoRepository enderecoRepository;	
 	
 	
 	public static void main(String[] args) {
@@ -69,7 +80,17 @@ public class SispedidosApplication implements CommandLineRunner {
 		estadoRepository.saveAll(Arrays.asList(est1, est2));
 		cidadeRepository.saveAll(Arrays.asList(c1, c2, c3));
 		
+		Cliente cli1 =new Cliente(null, "Maria Silva", "maria@gmail.com", "11234578965", TipoCliente.PESSOAFISICA);
 		
+		cli1.getTelefones().addAll(Arrays.asList("27363323", "93838394"));
+		
+		Endereco e1 = new Endereco(null, "Rua Flores", "300", "Apto 22", "Jardim", "3822201586", cli1, c1);
+		Endereco e2 = new Endereco(null, "Avenida Mateos", "105", "Sala 322", "Centro", "38777012", cli1, c2);
+		
+		cli1.getEnderecos().addAll(Arrays.asList(e1, e2));
+		
+		clienteRepository.saveAll(Arrays.asList(cli1));
+		enderecoRepository.saveAll(Arrays.asList(e1, e2));
 		
 	}
 }
