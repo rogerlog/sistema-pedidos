@@ -1,7 +1,10 @@
 package io.github.rogerlog.domain;
 
+import javax.persistence.Entity;
+
 import io.github.rogerlog.domain.enums.EstadoPagamento;
 
+@Entity
 public class PagamentoComCartao extends Pagamento {
 	
 	private static final long serialVersionUID = 1L;

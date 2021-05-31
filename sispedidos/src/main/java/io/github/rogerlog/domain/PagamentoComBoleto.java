@@ -2,8 +2,11 @@ package io.github.rogerlog.domain;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+
 import io.github.rogerlog.domain.enums.EstadoPagamento;
 
+@Entity
 public class PagamentoComBoleto extends Pagamento {
 	private static final long serialVersionUID = 1L;
 	private Date dataVencimento;
