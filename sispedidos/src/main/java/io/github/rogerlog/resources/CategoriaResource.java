@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import io.github.rogerlog.CategoriaDTO;
 import io.github.rogerlog.domain.Categoria;
+import io.github.rogerlog.dto.CategoriaDTO;
 import io.github.rogerlog.services.CategoriaService;
 
 @RestController

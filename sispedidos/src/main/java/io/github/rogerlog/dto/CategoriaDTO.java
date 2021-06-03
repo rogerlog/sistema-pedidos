@@ -1,4 +1,4 @@
-package io.github.rogerlog;
+package io.github.rogerlog.dto;
 
 import java.io.Serializable;
 
